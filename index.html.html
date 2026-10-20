@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>오늘의 마음 명언</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1f0; --ink:#26343a; --sub:#5d6b70; --card:#fbfcfb; --line:#d5dcdb;
+  --joy-t:#f1ebcf; --joy-a:#6e5f1c;
+  --sad-t:#dde8f1; --sad-a:#38607f;
+  --tir-t:#e7e4f2; --tir-a:#554e88;
+  --anx-t:#dbebe6; --anx-a:#2f6d61;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#151b1e; --ink:#e6ecec; --sub:#a3b0b3; --card:#1e2629; --line:#34403f;
+    --joy-t:#3a3720; --joy-a:#e3d589;
+    --sad-t:#1f3040; --sad-a:#9cc3e3;
+    --tir-t:#2c2a45; --tir-a:#bdb6ee;
+    --anx-t:#1d3a35; --anx-a:#8fd3c4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151b1e; --ink:#e6ecec; --sub:#a3b0b3; --card:#1e2629; --line:#34403f;
+  --joy-t:#3a3720; --joy-a:#e3d589;
+  --sad-t:#1f3040; --sad-a:#9cc3e3;
+  --tir-t:#2c2a45; --tir-a:#bdb6ee;
+  --anx-t:#1d3a35; --anx-a:#8fd3c4;
+}
+:root{--exc-t:#f4e3ea;--exc-a:#8d4562;--emp-t:#e1e5e8;--emp-a:#4f5d67;--lon-t:#e9e1d9;--lon-a:#725544;--ang-t:#f1e1cc;--ang-a:#8a5016}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--exc-t:#3d2631;--exc-a:#e8aac3;--emp-t:#2a3034;--emp-a:#b9c3ca;--lon-t:#38302a;--lon-a:#dcc0a6;--ang-t:#3d3022;--ang-a:#efc18a}}
+:root[data-theme="dark"]{--exc-t:#3d2631;--exc-a:#e8aac3;--emp-t:#2a3034;--emp-a:#b9c3ca;--lon-t:#38302a;--lon-a:#dcc0a6;--ang-t:#3d3022;--ang-a:#efc18a}
+.btn[data-k="exc"],.card[data-k="exc"]{background:var(--exc-t);--a:var(--exc-a)}
+.btn[data-k="emp"],.card[data-k="emp"]{background:var(--emp-t);--a:var(--emp-a)}
+.btn[data-k="lon"],.card[data-k="lon"]{background:var(--lon-t);--a:var(--lon-a)}
+.btn[data-k="ang"],.card[data-k="ang"]{background:var(--ang-t);--a:var(--ang-a)}
+.tr{margin:16px 0 0;font-size:1.3rem;line-height:1.6;color:var(--sub);word-break:keep-all}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;transition:background .5s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 48px}
+h1{font-size:clamp(1.6rem,5vw,2.1rem);margin:8px 0 6px;font-weight:700;line-height:1.35}
+.lead{margin:0 0 22px;color:var(--sub);font-size:1.15rem}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.btn{font:700 clamp(1.2rem,4.4vw,1.55rem)/1.35 "Noto Sans KR",sans-serif;min-height:100px;padding:18px 14px;border-radius:22px;border:3px solid transparent;cursor:pointer;color:var(--ink);transition:border-color .2s,transform .15s}
+.btn:active{transform:scale(.98)}
+.btn:focus-visible,.more:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+.btn[data-k="joy"]{background:var(--joy-t)}
+.btn[data-k="sad"]{background:var(--sad-t)}
+.btn[data-k="tir"]{background:var(--tir-t)}
+.btn[data-k="anx"]{background:var(--anx-t)}
+.btn[aria-pressed="true"]{border-color:var(--a)}
+.btn[data-k="joy"]{--a:var(--joy-a)} .btn[data-k="sad"]{--a:var(--sad-a)}
+.btn[data-k="tir"]{--a:var(--tir-a)} .btn[data-k="anx"]{--a:var(--anx-a)}
+.card{margin-top:26px;padding:38px 26px 30px;border-radius:26px;background:var(--card);border:1px solid var(--line);min-height:300px;display:flex;flex-direction:column;justify-content:center}
+.card[data-k="joy"]{background:var(--joy-t);--a:var(--joy-a)}
+.card[data-k="sad"]{background:var(--sad-t);--a:var(--sad-a)}
+.card[data-k="tir"]{background:var(--tir-t);--a:var(--tir-a)}
+.card[data-k="anx"]{background:var(--anx-t);--a:var(--anx-a)}
+.q{font:600 clamp(1.55rem,5.6vw,2.15rem)/1.65 "Noto Serif KR",serif;margin:0;word-break:keep-all}
+.q.hint{font-weight:500;color:var(--sub)}
+.who{margin:20px 0 0;font-size:1.2rem;color:var(--a,var(--sub));font-weight:500}
+.fade{animation:in .55s ease both}
+@keyframes in{from{opacity:0}to{opacity:1}}
+.more{margin-top:22px;width:100%;min-height:76px;font:700 1.35rem "Noto Sans KR",sans-serif;border-radius:20px;border:3px solid var(--a);background:transparent;color:var(--a);cursor:pointer}
+.more[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}.btn,body{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>오늘 마음은 어떤가요?</h1>
+  <p class="lead">지금 느끼는 감정을 하나 골라 보세요.</p>
+  <div class="btns" id="btns">
+    <button class="btn" data-k="joy" aria-pressed="false">기쁘고 행복함</button>
+    <button class="btn" data-k="sad" aria-pressed="false">슬프고 우울함</button>
+    <button class="btn" data-k="tir" aria-pressed="false">지치고 번아웃</button>
+    <button class="btn" data-k="anx" aria-pressed="false">불안하고 스트레스</button>
+    <button class="btn" data-k="exc" aria-pressed="false">설레고 두근거림</button>
+    <button class="btn" data-k="emp" aria-pressed="false">아무 생각 없음</button>
+    <button class="btn" data-k="lon" aria-pressed="false">외롭고 쓸쓸함</button>
+    <button class="btn" data-k="ang" aria-pressed="false">화나고 답답함</button>
+  </div>
+  <section class="card" id="card" aria-live="polite">
+    <p class="q hint" id="q">감정을 고르면 그 마음에 맞는 명언이 나타나요.</p>
+    <p class="tr" id="tr"></p>
+    <p class="who" id="who"></p>
+  </section>
+  <button class="more" id="more" hidden>다른 명언 보기</button>
+</main>
+<script>
+const D={
+joy:[
+"행복은 습관이다. 그것을 몸에 지니라.|엘버트 허버드",
+"어제는 역사, 내일은 미스터리, 오늘은 선물이다.|빌 킨",
+"행복의 문 하나가 닫히면 다른 문이 열린다.|헬렌 켈러",
+"웃음 없이 보낸 하루는 낭비한 하루다.|니콜라 샹포르",
+"행복은 인생의 의미이자 목적이다.|아리스토텔레스",
+"기쁨은 나누면 두 배가 되고, 슬픔은 나누면 절반이 된다.|속담",
+"작은 일에 감사할 줄 아는 사람이 큰 행복을 얻는다.|",
+"행복은 멀리 있지 않다. 지금 이 자리에 있다.|",
+"사람은 행복하다고 마음먹은 만큼 행복하다.|에이브러햄 링컨",
+"행복해서 감사한 것이 아니라, 감사해서 행복한 것이다.|데이비드 스타인들라스트",
+"인생은 가까이서 보면 비극이지만, 멀리서 보면 희극이다.|찰리 채플린",
+"가장 아름다운 것은 눈에 보이지 않고 마음으로 느껴야 한다.|헬렌 켈러",
+"마음이 즐거우면 얼굴이 빛난다.|구약 성경 잠언",
+"오늘의 웃음이 내일의 힘이 됩니다.|",
+"좋은 날은 기다리는 것이 아니라 만드는 것이다.|",
+"행복은 나눌수록 커지는 보물이다.|",
+"내가 웃으면 세상도 나를 향해 웃는다.|",
+"지금 느끼는 이 기쁨을 마음껏 누리세요. 그럴 자격이 충분합니다.|",
+"기쁜 오늘을 기억해 두세요. 힘든 날의 든든한 위로가 됩니다.|",
+"감사는 평범한 하루를 특별한 날로 바꿔 줍니다.|",
+"Laughter is the best medicine.|영어 속담|웃음은 최고의 약이다.",
+"Count your blessings.|영어 속담|가진 것에 감사하며 하나씩 헤아려 보라.",
+"Joy shared is joy doubled.|영어 속담|나눈 기쁨은 두 배가 된다.",
+"Happiness is not a station you arrive at, but a manner of traveling.|마거릿 리 런벡|행복은 도착하는 역이 아니라 여행하는 방식이다."],
+sad:[
+"이 또한 지나가리라.|솔로몬 왕의 말로 전해짐",
+"가장 어두운 밤도 결국 끝나고 해는 떠오른다.|빅토르 위고",
+"세상은 고통으로 가득하지만, 그것을 이겨내는 일로도 가득하다.|헬렌 켈러",
+"상처받은 곳으로 빛이 들어온다.|루미",
+"밤이 깊을수록 새벽은 가까워진다.|속담",
+"겨울이 오면 봄이 멀 수 있겠는가.|퍼시 비시 셸리",
+"슬픔이 존재를 깊이 파고들수록 더 많은 기쁨을 담을 수 있다.|칼릴 지브란",
+"세상은 모든 사람을 부러뜨리지만, 부러진 곳에서 더 강해지는 이도 많다.|어니스트 헤밍웨이",
+"눈물은 말하지 못하는 슬픔의 언어다.|볼테르",
+"비 온 뒤에 땅이 굳는다.|속담",
+"괜찮지 않아도 괜찮아요. 지금은 쉬어 가는 중입니다.|",
+"울고 싶을 땐 울어도 됩니다. 눈물은 마음을 씻어 줍니다.|",
+"당신은 지금까지 힘든 날을 모두 견뎌냈습니다.|",
+"하늘이 어두울수록 별은 더 밝게 빛납니다.|",
+"아무리 긴 밤도 아침을 막을 수는 없습니다.|",
+"눈물이 많은 사람은 마음이 따뜻한 사람입니다.|",
+"오늘의 아픔은 내일의 이야기가 됩니다.|",
+"슬픔은 흘러가는 것입니다. 붙잡지 않으면 반드시 지나갑니다.|",
+"혼자 견디지 않아도 됩니다. 곁에 있는 누군가에게 기대어 보세요.|",
+"지금 느끼는 마음은 당신이 진심으로 살아가고 있다는 증거입니다.|",
+"Every cloud has a silver lining.|영어 속담|모든 먹구름에는 은빛 테두리가 있다.",
+"It is always darkest before the dawn.|영어 속담|동이 트기 직전이 가장 어둡다.",
+"Time heals all wounds.|영어 속담|시간이 모든 상처를 낫게 한다.",
+"After a storm comes a calm.|영어 속담|폭풍이 지나면 고요가 온다."],
+tir:[
+"활시위를 늘 당겨 두면 활은 쓸모를 잃는다.|속담",
+"천 리 길도 한 걸음부터.|노자",
+"자연은 서두르지 않지만 모든 것을 이룬다.|노자",
+"가장 큰 영광은 넘어지지 않는 것이 아니라, 넘어질 때마다 다시 일어서는 데 있다.|넬슨 만델라",
+"나무를 벨 시간이 여섯 시간 주어진다면, 네 시간은 도끼를 갈겠다.|에이브러햄 링컨",
+"먼 길을 가려면 쉬어 가는 것도 지혜다.|속담",
+"쉬는 것도 일의 일부입니다.|",
+"휴식은 게으름이 아니라 내일을 위한 준비입니다.|",
+"오늘 다 못 해도 괜찮아요. 내일의 당신이 이어서 하면 됩니다.|",
+"충분히 해냈습니다. 이제 숨을 고를 시간입니다.|",
+"가끔은 아무것도 하지 않는 것이 가장 필요한 일입니다.|",
+"멈춤은 포기가 아니라 방향을 다시 잡는 일입니다.|",
+"빈 잔으로는 누구도 채울 수 없습니다. 먼저 나를 채우세요.|",
+"달리던 사람이 걷는다고 뒤처진 것이 아닙니다.|",
+"나를 돌보는 일은 이기심이 아니라 책임입니다.|",
+"쉼표가 있어야 문장이 읽히듯, 삶에도 쉼표가 필요합니다.|",
+"지금의 피로는 최선을 다했다는 증거입니다.|",
+"잠시 하늘을 올려다보세요. 하늘은 언제나 거기 있습니다.|",
+"오늘은 완벽하지 않아도 충분히 괜찮은 하루입니다.|",
+"잘 쉬는 것도 실력입니다. 오늘은 마음껏 쉬어 가세요.|",
+"Rome was not built in a day.|영어 속담|로마는 하루아침에 이루어지지 않았다.",
+"Slow and steady wins the race.|영어 속담|느리지만 꾸준한 쪽이 경주에서 이긴다.",
+"All work and no play makes Jack a dull boy.|영어 속담|일만 하고 놀지 않으면 생기를 잃는다.",
+"A change is as good as a rest.|영어 속담|변화는 휴식만큼 좋다."],
+anx:[
+"두려워해야 할 것은 두려움 그 자체뿐이다.|프랭클린 루스벨트",
+"걱정은 내일의 슬픔을 덜어 주지 않고, 오늘의 힘을 빼앗는다.|코리 텐 붐",
+"과거에 살면 우울하고, 미래에 살면 불안하며, 현재에 살면 평화롭다.|노자",
+"용기란 두려움이 없는 것이 아니라 두려움을 이겨내는 것이다.|넬슨 만델라",
+"고요한 바다는 능숙한 뱃사공을 만들지 못한다.|영국 속담",
+"파도를 멈출 수는 없지만, 파도 타는 법은 배울 수 있다.|존 카밧진",
+"내일 일은 내일 걱정하라. 하루의 괴로움은 그날로 족하다.|마태복음 6:34",
+"우리가 걱정하는 일의 대부분은 일어나지 않습니다.|",
+"폭풍은 영원히 계속되지 않습니다.|",
+"천천히 숨을 쉬어 보세요. 지금 이 순간 당신은 안전합니다.|",
+"한 번에 한 걸음, 한 번에 한 호흡이면 충분합니다.|",
+"모든 것을 한꺼번에 해결할 필요는 없습니다.|",
+"마음이 시끄러울 땐 몸부터 쉬게 해 주세요.|",
+"불안은 약하다는 뜻이 아니라, 소중한 것이 있다는 뜻입니다.|",
+"생각은 사실이 아닙니다. 지나가는 구름일 뿐입니다.|",
+"당신은 생각보다 훨씬 많은 것을 견뎌낼 수 있는 사람입니다.|",
+"완벽하지 않아도 시작할 수 있습니다.|",
+"잠시 눈을 감고 길게 숨을 내쉬어 보세요.|",
+"지금 할 수 있는 작은 일 하나만 하면 됩니다.|",
+"걱정이 많다는 건 그만큼 잘하고 싶은 마음이 크다는 증거입니다.|",
+"Don’t cross the bridge until you come to it.|영어 속담|다리에 닿기 전에 미리 건너려 하지 마라.",
+"Keep calm and carry on.|영국 격언|침착하게, 하던 일을 계속하라.",
+"The best way out is always through.|로버트 프로스트|벗어나는 가장 좋은 길은 언제나 통과하는 것이다.",
+"Don’t borrow trouble.|영어 속담|미리 걱정을 빌려 오지 마라."],
+exc:[
+"미래는 자신의 꿈이 아름답다고 믿는 사람의 것이다.|엘리너 루스벨트",
+"시작이 반이다.|속담",
+"가장 좋은 것은 아직 오지 않았다.|로버트 브라우닝",
+"꿈이 향하는 방향으로 자신 있게 나아가라.|헨리 데이비드 소로",
+"기다림은 설렘의 또 다른 이름입니다.|",
+"두근거림은 마음이 살아 있다는 신호입니다.|",
+"설레는 마음을 숨기지 마세요. 그 마음이 당신을 움직입니다.|",
+"새로운 시작 앞에서는 누구나 조금 떨립니다. 그게 설렘이에요.|",
+"오늘 느낀 두근거림을 소중히 간직하세요.|",
+"좋은 일은 기대하는 사람에게 먼저 찾아옵니다.|",
+"가슴이 뛴다면 이미 반은 시작한 겁니다.|",
+"기대되는 내일이 있다는 건 멋진 일입니다.|",
+"작은 설렘 하나가 하루를 환하게 바꿉니다.|",
+"마음이 향하는 곳으로 한 걸음 내디뎌 보세요.|",
+"용기 있는 첫걸음이 가장 큰 모험의 시작입니다.|",
+"떨림은 새로운 이야기가 시작되는 소리입니다.|",
+"Well begun is half done.|영어 속담|시작이 좋으면 반은 이룬 것이다.",
+"Good things come to those who wait.|영어 속담|좋은 일은 기다리는 사람에게 온다.",
+"The sky is the limit.|영어 속담|하늘이 한계다. 가능성은 끝이 없다.",
+"Fortune favors the bold.|라틴 속담|행운은 용감한 사람의 편이다."],
+emp:[
+"멍하니 있는 시간도 마음에게는 꼭 필요한 휴식입니다.|",
+"아무 생각 없는 날도 괜찮아요. 머리를 비우는 중입니다.|",
+"그릇도 방도 비어 있기에 쓸모가 있다.|노자",
+"고요함은 가장 깊은 곳에서 나를 쉬게 합니다.|",
+"생각을 멈추면 비로소 들리는 소리가 있습니다.|",
+"구름은 아무 생각 없이도 하늘을 흘러갑니다.|",
+"오늘은 아무것도 되지 않아도 됩니다. 그냥 있어도 충분합니다.|",
+"텅 빈 마음에는 새로운 것이 들어올 자리가 생깁니다.|",
+"굳이 채우지 않아도 되는 하루도 있습니다.|",
+"여백이 있어야 그림이 숨을 쉽니다.|",
+"아무 느낌이 없어도 괜찮아요. 마음이 잠시 쉬고 있는 겁니다.|",
+"가만히 있는 것도 하나의 방법입니다.|",
+"느리게 흘러가는 오늘도 소중한 하루입니다.|",
+"머릿속이 조용하다면 그 고요를 즐겨 보세요.|",
+"물은 가만히 두면 저절로 맑아집니다.|",
+"눈을 감고 숨 쉬는 것만으로도 오늘 할 일은 충분합니다.|",
+"Still waters run deep.|영어 속담|고요한 물이 깊이 흐른다.",
+"Silence is golden.|영어 속담|침묵은 금이다.",
+"Take it easy.|영어 표현|천천히, 편하게 가세요.",
+"Doing nothing is better than being busy doing nothing.|노자|아무것도 아닌 일로 바쁜 것보다 가만히 있는 편이 낫다."],
+lon:[
+"외로움은 내가 나와 함께 있는 법을 배우는 시간입니다.|",
+"당신은 생각보다 많은 사람의 마음속에 있습니다.|",
+"별은 혼자 떠 있어도 환하게 빛납니다.|",
+"고독은 영혼이 자라는 시간입니다.|",
+"외롭다는 건 사람을 그리워할 줄 아는 따뜻한 마음이 있다는 뜻입니다.|",
+"혼자 있는 시간이 길어도 당신은 혼자가 아닙니다.|",
+"연락 한 통이면 닿을 수 있는 누군가가 분명 있습니다.|",
+"달은 홀로 떠 있어도 온 세상을 비춥니다.|",
+"용기 내어 안부를 물어 보세요. 상대도 기다리고 있을지 모릅니다.|",
+"오늘의 쓸쓸함은 따뜻한 만남의 밑거름이 됩니다.|",
+"나무는 혼자 서 있는 듯해도 땅속에서 서로 뿌리가 닿아 있습니다.|",
+"마음을 열면 인연은 찾아옵니다.|",
+"외로운 밤에는 따뜻한 차 한 잔으로 나를 안아 주세요.|",
+"누군가에게 당신은 꼭 필요한 사람입니다.|",
+"혼자만의 시간은 나를 가장 잘 알게 해 줍니다.|",
+"쓸쓸한 마음도 결국 지나가는 계절입니다.|",
+"No man is an island.|존 던|누구도 홀로 떨어진 섬이 아니다.",
+"A friend in need is a friend indeed.|영어 속담|어려울 때 곁에 있어 주는 친구가 진짜 친구다.",
+"Birds of a feather flock together.|영어 속담|비슷한 마음은 서로를 찾아간다.",
+"Home is where the heart is.|영어 속담|집은 마음이 머무는 곳이다."],
+ang:[
+"화가 나면 열까지 세어라. 아주 화가 나면 백까지 세어라.|토머스 제퍼슨",
+"분노는 남에게 던지려고 쥔 뜨거운 숯과 같아서, 먼저 데는 건 나 자신이다.|부처의 가르침으로 전해짐",
+"화가 날 때 잠깐 멈추는 것이 가장 큰 힘입니다.|",
+"숨을 깊게 세 번 들이쉬고 내쉬어 보세요. 마음이 조금 가라앉습니다.|",
+"화가 난다는 건 내가 소중히 여기는 것이 있다는 신호입니다.|",
+"지금 하려는 말을 내일의 나에게도 할 수 있나요?|",
+"답답한 마음은 글로 적거나 말로 꺼내면 한결 가벼워집니다.|",
+"감정은 파도와 같아서 올라왔다가 반드시 내려갑니다.|",
+"화는 잠시 머물다 가는 손님입니다. 문을 열어 보내 주세요.|",
+"잠깐 자리를 벗어나 걸어 보세요. 생각이 정리됩니다.|",
+"당신의 답답함은 충분히 이해받을 만합니다.|",
+"참는 것과 삭이는 것은 다릅니다. 건강하게 풀어낼 방법을 찾아보세요.|",
+"물은 흔들리지 않을 때 가장 맑게 비춥니다.|",
+"지금 화나는 일이 한 달 뒤에도 그만큼 클까요?|",
+"화를 푸는 가장 빠른 길은 몸을 움직이는 것입니다.|",
+"지금은 답답해도, 이 마음은 반드시 가라앉습니다.|",
+"Anger is one letter short of danger.|영어 격언|분노(anger)는 위험(danger)에서 글자 하나가 모자랄 뿐이다.",
+"Least said, soonest mended.|영어 속담|말이 적을수록 빨리 풀린다.",
+"Sleep on it.|영어 표현|하룻밤 자고 나서 생각해 보세요.",
+"A soft answer turns away wrath.|구약 성경 잠언|부드러운 대답은 분노를 가라앉힌다."]
+};
+const bag={},last={};
+function next(k){
+  if(!bag[k]||!bag[k].length){
+    const a=D[k].map((_,i)=>i);
+    for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+    if(a[a.length-1]===last[k])a.unshift(a.pop());
+    bag[k]=a;
+  }
+  last[k]=bag[k].pop();
+  return D[k][last[k]].split("|");
+}
+const card=document.getElementById("card"),q=document.getElementById("q"),who=document.getElementById("who"),tr=document.getElementById("tr"),more=document.getElementById("more");
+let cur=null;
+function show(k){
+  cur=k;
+  const [t,a,x]=next(k);
+  card.dataset.k=k; more.dataset.k=k; more.style.setProperty("--a",getComputedStyle(card).getPropertyValue("--a"));
+  q.className="q fade"; q.textContent="“"+t+"”";
+  tr.className="tr fade"; tr.textContent=x||"";
+  who.className="who fade"; who.textContent=a?"— "+a:"";
+  more.hidden=false;
+  document.querySelectorAll(".btn").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));
+}
+document.getElementById("btns").addEventListener("click",e=>{const b=e.target.closest(".btn");if(b)show(b.dataset.k)});
+more.addEventListener("click",()=>cur&&show(cur));
+</script>
+</body>
+</html>
